@@ -1001,21 +1001,6 @@ display_prediction(test_scaled_X, svm_pred.predict(test_scaled_X))
     269        269         8.0
     
     [270 rows x 2 columns]
-
-
-### Further Improvements
-
-Some of the idea to explore more into:
-
-**1. Feature Engineering:** Use better statistics for generating a feature vector for a standard machine learning model. Info like mean and std deviation of the observation, linear regression coefficients, the difference between different observation (first and the last or so).
-
-**2. Algorithm Tuning:** We can test some other algorithm like KNN and Logistic Regression who showed good performance in the beginning.
-
-**3. LSTM Tuning:** Try different model of LSTM and see if we can get better performance.
-
-To test if we can further improve the performance. Let us use PCA to find independent variables.
-
-
 **KNN and Logistic Regression**
 
 
@@ -1035,7 +1020,7 @@ print_result(b_train_y, y_pred)
 ```
 
                   precision    recall  f1-score   support
-    
+
              0.0       1.00      0.90      0.95        40
              1.0       0.97      0.97      0.97        40
              2.0       0.98      0.99      0.98        88
@@ -1045,12 +1030,12 @@ print_result(b_train_y, y_pred)
              6.0       1.00      0.97      0.99        40
              7.0       0.89      0.96      0.92        50
              8.0       0.97      0.93      0.95        40
-    
+
        micro avg       0.96      0.96      0.96       422
        macro avg       0.97      0.96      0.96       422
     weighted avg       0.97      0.96      0.96       422
-    
-    Confusion Matrix: 
+
+    Confusion Matrix:
      [[36  0  0  0  0  2  0  1  1]
      [ 0 39  0  0  0  0  0  1  0]
      [ 0  0 87  0  0  0  0  1  0]
@@ -1060,12 +1045,12 @@ print_result(b_train_y, y_pred)
      [ 0  0  0  0  0  0 39  1  0]
      [ 0  1  1  0  0  0  0 48  0]
      [ 0  0  0  0  3  0  0  0 37]]
-    
-    
-    
+
+
+
     ---Using Logistic Regression---
                   precision    recall  f1-score   support
-    
+
              0.0       1.00      0.97      0.99        40
              1.0       1.00      0.97      0.99        40
              2.0       0.97      0.99      0.98        88
@@ -1075,12 +1060,12 @@ print_result(b_train_y, y_pred)
              6.0       0.98      1.00      0.99        40
              7.0       0.96      0.98      0.97        50
              8.0       0.95      0.97      0.96        40
-    
+
        micro avg       0.98      0.98      0.98       422
        macro avg       0.98      0.98      0.98       422
     weighted avg       0.98      0.98      0.98       422
-    
-    Confusion Matrix: 
+
+    Confusion Matrix:
      [[39  0  0  0  0  0  0  1  0]
      [ 0 39  1  0  0  0  0  0  0]
      [ 0  0 87  0  0  0  0  0  1]
@@ -1090,6 +1075,21 @@ print_result(b_train_y, y_pred)
      [ 0  0  0  0  0  0 40  0  0]
      [ 0  0  1  0  0  0  0 49  0]
      [ 0  0  1  0  0  0  0  0 39]]
+
+
+
+### Further Future Improvements
+
+Some of the idea to explore more into:
+
+**1. Feature Engineering:** Use better statistics for generating a feature vector for a standard machine learning model. Info like mean and std deviation of the observation, linear regression coefficients, the difference between different observation (first and the last or so).
+
+**2. Algorithm Tuning:** We can test some other algorithm like KNN and Logistic Regression who showed good performance in the beginning.
+
+**3. LSTM Tuning:** Try different model of LSTM and see if we can get better performance.
+
+To test if we can further improve the performance. Let us use PCA to find independent variables.
+
 
 
 #### PCA Analysis
