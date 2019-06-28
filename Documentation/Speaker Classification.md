@@ -67,30 +67,6 @@ from sklearn import metrics
 ```
 
 
-        <script type="text/javascript">
-        window.PlotlyConfig = {MathJaxConfig: 'local'};
-        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-        if (typeof require !== 'undefined') {
-        require.undef("plotly");
-        requirejs.config({
-            paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-latest.min']
-            }
-        });
-        require(['plotly'], function(Plotly) {
-            window._Plotly = Plotly;
-        });
-        }
-        </script>
-        
-
-
-    Using TensorFlow backend.
-    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/_bootstrap.py:205: RuntimeWarning:
-    
-    compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
-    
-
 
 ### Load Data
 
@@ -174,11 +150,6 @@ for c in coefficients:
 plt.show()
 
 ```
-
-    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning:
-    
-    Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-    
 
 
 
@@ -703,10 +674,6 @@ print("\n\nBest Estimators:      ", grid_search.best_estimator_)
 
 
     [Parallel(n_jobs=1)]: Done 200 out of 200 | elapsed:    8.6s finished
-    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning:
-    
-    The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
-    
 
 
 The best parameter set obtained using grid search are:
