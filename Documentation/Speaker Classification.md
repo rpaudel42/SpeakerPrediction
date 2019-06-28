@@ -67,6 +67,31 @@ from sklearn import metrics
 ```
 
 
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-latest.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+
+
+    Using TensorFlow backend.
+    /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/_bootstrap.py:205: RuntimeWarning:
+    
+    compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' does not match runtime version 3.6
+    
+
+
 ### Load Data
 
 Write a function to read the training data, training label, and test data.
@@ -173,66 +198,14 @@ Coefficient 1, 4 and 8 are little flat (with more skewness)
 unique, counts = np.unique(train_blocks_label, return_counts=True)
 label_counts = dict(zip(unique, counts))
 
-n = len(label_counts)
-colormap = get_cmap('viridis')
-colors = [rgb2hex(colormap(col)) for col in np.arange(0, 1.01, 1/(n-1))]
-
-# Create plot
-data = go.Bar(x = unique,
-              y = counts,
-              marker = dict(color = colors))
-layout = go.Layout(title = 'Speaker Distribution',
-                   xaxis = dict(title = 'Speaker'),
-                   yaxis = dict(title = 'Number of Blocks'))
-fig = go.Figure(data=[data], layout=layout)
-iplot(fig)
+plt.figure(figsize=(10, 6))
+sns.barplot(x = unique,
+              y = counts)
+plt.show()
 ```
 
 
-<div>
-        
-        
-            <div id="3697abb0-294d-4f50-90b5-0b5607265269" class="plotly-graph-div" style="height:525px; width:100%;"></div>
-            <script type="text/javascript">
-                require(["plotly"], function(Plotly) {
-                    window.PLOTLYENV=window.PLOTLYENV || {};
-                    window.PLOTLYENV.BASE_URL='https://plot.ly';
-                    
-                if (document.getElementById("3697abb0-294d-4f50-90b5-0b5607265269")) {
-                    Plotly.newPlot(
-                        '3697abb0-294d-4f50-90b5-0b5607265269',
-                        [{"marker": {"color": ["#440154", "#472d7b", "#3b528b", "#2c728e", "#21918c", "#28ae80", "#5ec962", "#addc30", "#fde725"]}, "type": "bar", "uid": "2a198fdc-010a-4770-ba50-741c26abd097", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8], "y": [31, 35, 88, 44, 29, 24, 40, 50, 29]}],
-                        {"title": {"text": "Speaker Distribution"}, "xaxis": {"title": {"text": "Speaker"}}, "yaxis": {"title": {"text": "Number of Blocks"}}},
-                        {"showLink": false, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly", "responsive": true}
-                    ).then(function(){
-                            
-var gd = document.getElementById('3697abb0-294d-4f50-90b5-0b5607265269');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })
-                };
-                });
-            </script>
-        </div>
+![png](output_7_0.png)
 
 
 We can see that 3rd speaker have the most number of training tuples while 6 has the least. Beside, 3rd others have balanced distribution. 
@@ -915,66 +888,14 @@ b_train_y = balanced_train_data[:,-1]
 unique, counts = np.unique(b_train_y, return_counts=True)
 label_counts = dict(zip(unique, counts))
 
-n = len(label_counts)
-colormap = get_cmap('viridis')
-colors = [rgb2hex(colormap(col)) for col in np.arange(0, 1.01, 1/(n-1))]
-
-# Create plot
-data = go.Bar(x = unique,
-              y = counts,
-              marker = dict(color = colors))
-layout = go.Layout(title = 'Speaker Distribution',
-                   xaxis = dict(title = 'Speaker'),
-                   yaxis = dict(title = 'Number of Blocks'))
-fig = go.Figure(data=[data], layout=layout)
-iplot(fig)
+plt.figure(figsize=(10, 6))
+sns.barplot(x = unique,
+              y = counts)
+plt.show()
 ```
 
 
-<div>
-        
-        
-            <div id="03796a86-a356-4a96-958d-b895c790827a" class="plotly-graph-div" style="height:525px; width:100%;"></div>
-            <script type="text/javascript">
-                require(["plotly"], function(Plotly) {
-                    window.PLOTLYENV=window.PLOTLYENV || {};
-                    window.PLOTLYENV.BASE_URL='https://plot.ly';
-                    
-                if (document.getElementById("03796a86-a356-4a96-958d-b895c790827a")) {
-                    Plotly.newPlot(
-                        '03796a86-a356-4a96-958d-b895c790827a',
-                        [{"marker": {"color": ["#440154", "#472d7b", "#3b528b", "#2c728e", "#21918c", "#28ae80", "#5ec962", "#addc30", "#fde725"]}, "type": "bar", "uid": "882b6a7a-e36f-4260-955c-34f6440f1c2c", "x": [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0], "y": [40, 40, 88, 44, 40, 40, 40, 50, 40]}],
-                        {"title": {"text": "Speaker Distribution"}, "xaxis": {"title": {"text": "Speaker"}}, "yaxis": {"title": {"text": "Number of Blocks"}}},
-                        {"showLink": false, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly", "responsive": true}
-                    ).then(function(){
-                            
-var gd = document.getElementById('03796a86-a356-4a96-958d-b895c790827a');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })
-                };
-                });
-            </script>
-        </div>
+![png](output_32_0.png)
 
 
 
