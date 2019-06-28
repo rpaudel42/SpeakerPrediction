@@ -1005,6 +1005,12 @@ display_prediction(test_scaled_X, svm_pred.predict(test_scaled_X))
 
 
 ```python
+b_train_x = balanced_train_data[:,:-1]
+b_train_y = balanced_train_data[:,-1]
+
+scl = StandardScaler()
+scaled_data_x = scl.fit_transform(b_train_x)
+
  # knn
 knn = KNeighborsClassifier()
 y_pred = cross_val_predict(knn, scaled_data_x, b_train_y, cv=5)
@@ -1096,12 +1102,6 @@ To test if we can further improve the performance. Let us use PCA to find indepe
 
 
 ```python
-# X = final_train_data
-b_train_x = balanced_train_data[:,:-1]
-b_train_y = balanced_train_data[:,-1]
-
-scl = StandardScaler()
-scaled_data_x = scl.fit_transform(b_train_x)
 pca = PCA().fit(scaled_data_x)
 #Plotting the Cumulative Summation of the Explained Variance
 plt.figure()
