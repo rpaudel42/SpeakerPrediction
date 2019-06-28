@@ -64,6 +64,27 @@ from sklearn import svm
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+```
+
+
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-latest.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+
+
+
 
 ### Load Data
 
